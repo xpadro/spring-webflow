@@ -1,0 +1,38 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="content">
+	<h:form id="mainForm">
+		Employee data:<br /> 
+		<p:fieldset>
+			<h:outputLabel style="font-family:bold" for="name">Name: </h:outputLabel>
+			<h:outputText id="name" value="#{userBean.name}"/><br/>
+			<h:outputLabel style="font-family:bold" for="surname">Surname: </h:outputLabel>
+			<h:outputText id="surname" value="#{userBean.surname}"/>
+		</p:fieldset>
+		
+		<br/>
+		Additional info:<br />
+		<p:fieldset>
+			<h:outputLabel style="font-family:bold" for="code">Code: </h:outputLabel>
+			<h:outputText id="code" value="#{userBean.code}"/><br/>
+			<h:outputLabel style="font-family:bold" for="city">City: </h:outputLabel>
+			<h:outputText id="city" value="#{userBean.city}"/>
+		</p:fieldset>
+
+		<p>
+			Confirm selection?
+		</p>
+		<p style="text-align:center">
+		    <p:commandButton value="Reset" action="reset" update="mainForm"/>
+		    <p:commandButton value="Confirm" action="confirm" update="mainForm" />   
+		</p>
+	</h:form>
+</ui:define>
+
+</ui:composition>

@@ -1,0 +1,73 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"	
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title">Main flow - Employee management</ui:define>
+
+<ui:define name="leftCont">
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ipsum diam, luctus ac auctor vel, 
+		lobortis a odio. Phasellus nec lacus sit amet odio adipiscing sodales vel a ipsum. Donec laoreet 
+		leo id diam laoreet sed adipiscing odio bibendum. Nulla tristique ultricies turpis, ac interdum 
+		diam lobortis at. Donec eu tristique quam. Sed in leo eget arcu venenatis feugiat. Nullam magna 
+		nisl, malesuada eget convallis at, accumsan venenatis augue. Nulla consectetur, elit eu ultrices 
+		fermentum, est mi dictum orci, non viverra turpis dolor tempor eros. Morbi eget semper lectus. 
+	</p>
+</ui:define>
+
+<ui:define name="content">
+	<div>
+		<h2 class="blockTitle">Employee information page</h2>
+		<p>
+			<h:form id="form">
+				<h3 class="blockTitle">Current employee:</h3>
+				<p:fieldset>
+					Name: <h:outputText value="#{userBean.name}" /><br/>
+					Surname: <h:outputText value="#{userBean.surname}" /><br/><br/>
+					<h:commandButton action="next" value="Check employee sales" disabled="#{userBean.name == null}" />
+				</p:fieldset>
+				
+				<p:outputPanel rendered="#{userBean.city ne null}">
+					<h3 class="blockTitle">Additional info:</h3>
+					<p:fieldset id="additionalInfo">
+						Code: <h:outputText value="#{userBean.code}"/> <br />
+						City: <h:outputText value="#{userBean.city}"/> <br />
+					</p:fieldset>
+				</p:outputPanel>
+				
+				<br/><br/>
+				<a href="JavaScript:void(0)" onclick="employeeSearch.show()">Load employee data</a>
+			</h:form>
+		</p>
+		<p:dialog widgetVar="employeeSearch" header="Search employee" modal="true" width="580">
+			<p:outputPanel>
+				<h:form id="mainForm">
+					Insert employee name and surname: <br /><br />
+					Name: <h:inputText value="#{userBean.name}" />
+					Surname: <h:inputText value="#{userBean.surname}" /><br /><br />
+					<p style="text-align:center">
+						<p:commandButton value="Get data" action="start" update="mainForm"/>&nbsp;
+					</p>
+			    </h:form>   
+			</p:outputPanel>
+		</p:dialog>
+		
+	</div>
+</ui:define>
+
+<ui:define name="rightCont">
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ipsum diam, luctus ac auctor vel, 
+		lobortis a odio. Phasellus nec lacus sit amet odio adipiscing sodales vel a ipsum. Donec laoreet 
+		leo id diam laoreet sed adipiscing odio bibendum. Nulla tristique ultricies turpis, ac interdum 
+		diam lobortis at. Donec eu tristique quam. Sed in leo eget arcu venenatis feugiat. Nullam magna 
+		nisl, malesuada eget convallis at, accumsan venenatis augue. Nulla consectetur, elit eu ultrices 
+		fermentum, est mi dictum orci, non viverra turpis dolor tempor eros. Morbi eget semper lectus. 
+	</p>
+</ui:define>
+
+</ui:composition>

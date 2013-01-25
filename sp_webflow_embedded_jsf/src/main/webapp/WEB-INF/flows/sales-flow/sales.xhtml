@@ -1,0 +1,68 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"	
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title">Main flow - Employee sales</ui:define>
+
+<ui:define name="leftCont">
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ipsum diam, luctus ac auctor vel, 
+		lobortis a odio. Phasellus nec lacus sit amet odio adipiscing sodales vel a ipsum. Donec laoreet 
+		leo id diam laoreet sed adipiscing odio bibendum. Nulla tristique ultricies turpis, ac interdum 
+		diam lobortis at. Donec eu tristique quam. Sed in leo eget arcu venenatis feugiat. Nullam magna 
+		nisl, malesuada eget convallis at, accumsan venenatis augue. Nulla consectetur, elit eu ultrices 
+		fermentum, est mi dictum orci, non viverra turpis dolor tempor eros. Morbi eget semper lectus. 
+	</p>
+</ui:define>
+
+<ui:define name="content">
+	<div>
+		<h2 class="blockTitle">Employee sales page</h2>
+		<p>
+			<h:form id="form">
+				<h3 class="blockTitle">Current employee:</h3>
+				<p:fieldset>
+					Name: <h:outputText value="#{userBean.name}" /><br/>
+					Surname: <h:outputText value="#{userBean.surname}" /><br/>
+					Code: <h:outputText value="#{userBean.code}"/> <br />
+					City: <h:outputText value="#{userBean.city}"/> <br />
+				</p:fieldset>
+				
+				<p:fieldset>
+					<p:dataTable var="car" value="#{userBean.sales}">
+						<p:column headerText="Manufacturer">
+							<h:outputText value="#{car.manufacturer}" />
+						</p:column>
+						
+						<p:column headerText="Model">
+							<h:outputText value="#{car.model}" />
+						</p:column>
+						
+						<p:column headerText="Price">
+							<h:outputText value="#{car.price} Eur." />
+						</p:column>
+					</p:dataTable>  
+				</p:fieldset>
+				<br/><br/>
+				<h:commandButton action="back" value="Back to employee seleccion"/>
+			</h:form>
+		</p>
+	</div>
+</ui:define>
+
+<ui:define name="rightCont">
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ipsum diam, luctus ac auctor vel, 
+		lobortis a odio. Phasellus nec lacus sit amet odio adipiscing sodales vel a ipsum. Donec laoreet 
+		leo id diam laoreet sed adipiscing odio bibendum. Nulla tristique ultricies turpis, ac interdum 
+		diam lobortis at. Donec eu tristique quam. Sed in leo eget arcu venenatis feugiat. Nullam magna 
+		nisl, malesuada eget convallis at, accumsan venenatis augue. Nulla consectetur, elit eu ultrices 
+		fermentum, est mi dictum orci, non viverra turpis dolor tempor eros. Morbi eget semper lectus. 
+	</p>
+</ui:define>
+
+</ui:composition>
