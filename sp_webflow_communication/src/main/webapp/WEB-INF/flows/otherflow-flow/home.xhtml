@@ -1,0 +1,48 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"	
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title">Other flow</ui:define>
+
+<ui:define name="leftCont">
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ipsum diam, luctus ac auctor vel, 
+		lobortis a odio. Phasellus nec lacus sit amet odio adipiscing sodales vel a ipsum. Donec laoreet 
+		leo id diam laoreet sed adipiscing odio bibendum. Nulla tristique ultricies turpis, ac interdum 
+		diam lobortis at. Donec eu tristique quam. Sed in leo eget arcu venenatis feugiat. Nullam magna 
+		nisl, malesuada eget convallis at, accumsan venenatis augue. Nulla consectetur, elit eu ultrices 
+		fermentum, est mi dictum orci, non viverra turpis dolor tempor eros. Morbi eget semper lectus. 
+	</p>
+</ui:define>
+
+<ui:define name="content">
+	<p:panel id="varsPanel" header="Variables" style="margin-bottom:10px;"> 
+		<h:panelGrid columns="2"> 
+			<h:outputLabel for="otherParam" value="otherParam:" style="font-weight:bold" />  
+	        <h:outputText id="otherParam" value="${otherParam}"/>
+	        
+	        <h:outputLabel for="urlParam" value="urlParam:" style="font-weight:bold" />  
+	        <h:outputText id="urlParam" value="${urlParam}"/>
+	        
+	        <h:outputLabel for="sessionParam" value="sessionParam:" style="font-weight:bold" />  
+	        <h:outputText id="sessionParam" value="${factoryId}"/>
+		</h:panelGrid>
+	</p:panel>
+</ui:define>
+
+<ui:define name="rightCont">
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ipsum diam, luctus ac auctor vel, 
+		lobortis a odio. Phasellus nec lacus sit amet odio adipiscing sodales vel a ipsum. Donec laoreet 
+		leo id diam laoreet sed adipiscing odio bibendum. Nulla tristique ultricies turpis, ac interdum 
+		diam lobortis at. Donec eu tristique quam. Sed in leo eget arcu venenatis feugiat. Nullam magna 
+		nisl, malesuada eget convallis at, accumsan venenatis augue. Nulla consectetur, elit eu ultrices 
+		fermentum, est mi dictum orci, non viverra turpis dolor tempor eros. Morbi eget semper lectus. 
+	</p>
+</ui:define>
+
+</ui:composition>

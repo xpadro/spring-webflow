@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+	 http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+	parent="parent-flow">
+
+	<var name="car" class="xpadro.tutorial.webflow.model.Car"/>
+	
+	<on-start>
+		<set name="externalContext.sessionMap.factoryId" value="5061" type="java.lang.Integer"/>
+		<evaluate expression="customerService.getPreferences()" result="flowScope.preferences"/>
+	</on-start>
+	
+	<action-state id="startAssembly">
+		<evaluate expression="carFactory.paintCar(car)"/>
+		<transition on="success" to="addMechanics">
+			<set name="requestScope.carInstance1" value="car"/>
+			<set name="requestScope.carString" value="'car'"/>
+			<set name="requestScope.carInstance2" value="flowScope.car"/>
+		</transition>
+	</action-state>
+	
+	<subflow-state id="addMechanics" subflow="mechanics-flow">
+		<input name="currentCar" value="requestScope.carInstance1" type="xpadro.tutorial.webflow.model.Car"/>
+		<input name="preferences" value="flowScope.preferences" type="java.util.Map"/>
+		<transition on="mechanicsSuccess" to="carValidationPhase1">
+			<set name="flowScope.mechanics" value="currentEvent.attributes.mechanics" />
+		</transition>
+	</subflow-state>
+	
+	<action-state id="carValidationPhase1">
+		<evaluate expression="supportBean.validateCarColor(flowRequestContext)"/>
+		<transition on="success" to="carValidationPhase2"/>
+	</action-state>
+	
+	<action-state id="carValidationPhase2">
+		<evaluate expression="supportBean.validateCarMechanics()"/>
+		<transition on="success" to="assemblyFinalized"/>
+	</action-state>
+	
+	<end-state id="assemblyFinalized" view="created.xhtml">
+		<on-entry>
+			<set name="flashScope.currentView" value="flowRequestContext.currentState.id"/>
+			<set name="flashScope.flowId" value="flowRequestContext.activeFlow.id"/>
+		</on-entry>
+	</end-state>
+</flow>
