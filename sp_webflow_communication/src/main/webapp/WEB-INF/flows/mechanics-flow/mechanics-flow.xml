@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+	 http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+	parent="parent-flow">
+
+	<input name="currentCar" type="xpadro.tutorial.webflow.model.Car"/>
+	<input name="preferences" type="java.util.Map"/>
+	
+	<action-state id="setMechanics">
+		<evaluate expression="carFactory.addMechanics"/>
+		<transition on="success" to="mechanicsSuccess"/>
+		<transition on="fail" to="mechanicsFail"/>
+	</action-state>
+	
+	<end-state id="mechanicsSuccess">
+		<output name="mechanics" value="'success'"/>
+	</end-state>
+	
+	<end-state id="mechanicsFail">
+		<output name="mechanics" value="'fail'"/>
+	</end-state>
+</flow>

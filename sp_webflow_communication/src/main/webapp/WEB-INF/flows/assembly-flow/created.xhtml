@@ -1,0 +1,67 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"	
+				template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title">Assembly flow - Car created</ui:define>
+
+<ui:define name="leftCont">
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ipsum diam, luctus ac auctor vel, 
+		lobortis a odio. Phasellus nec lacus sit amet odio adipiscing sodales vel a ipsum. Donec laoreet 
+		leo id diam laoreet sed adipiscing odio bibendum. Nulla tristique ultricies turpis, ac interdum 
+		diam lobortis at. Donec eu tristique quam. Sed in leo eget arcu venenatis feugiat. Nullam magna 
+		nisl, malesuada eget convallis at, accumsan venenatis augue. Nulla consectetur, elit eu ultrices 
+		fermentum, est mi dictum orci, non viverra turpis dolor tempor eros. Morbi eget semper lectus. 
+	</p>
+</ui:define>
+
+<ui:define name="content">
+	<p:panel id="carPanel" header="New car" style="margin-bottom:10px;"> 
+		<h:panelGrid columns="2">  
+	        <h:outputLabel for="color" value="Color:" style="font-weight:bold" />  
+	        <h:outputText id="color" value="${car.color}"/>
+	        
+	        <h:outputLabel for="engine" value="Engine:" style="font-weight:bold" />  
+	        <h:outputText id="engine" value="${car.engine}"/>
+	        
+	        <h:outputLabel for="transmission" value="Transmission:" style="font-weight:bold" />  
+	        <h:outputText id="transmission" value="${car.transmission}"/>
+	        
+	        <h:outputLabel for="fuel" value="Fuel:" style="font-weight:bold" />  
+	        <h:outputText id="fuel" value="${car.fuel}"/>
+	    </h:panelGrid>  
+	</p:panel>
+	
+	<p:panel id="varsPanel" header="Variables" style="margin-bottom:10px;"> 
+		<h:panelGrid columns="2"> 
+			<h:outputLabel for="result" value="Sub flow result:" style="font-weight:bold" />  
+	        <h:outputText id="result" value="${mechanics}"/>
+	        
+	        <h:outputLabel for="currentView" value="Current view id:" style="font-weight:bold" />  
+	        <h:outputText id="currentView" value="${currentView}"/>
+	        
+	        <h:outputLabel for="flowId" value="Current flow id:" style="font-weight:bold" />  
+	        <h:outputText id="flowId" value="${flowId}"/>
+		</h:panelGrid>
+	</p:panel>
+	
+	
+	<a href="otherflow-flow?otherParam=otherValue">invoke other flow</a>
+</ui:define>
+
+<ui:define name="rightCont">
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ipsum diam, luctus ac auctor vel, 
+		lobortis a odio. Phasellus nec lacus sit amet odio adipiscing sodales vel a ipsum. Donec laoreet 
+		leo id diam laoreet sed adipiscing odio bibendum. Nulla tristique ultricies turpis, ac interdum 
+		diam lobortis at. Donec eu tristique quam. Sed in leo eget arcu venenatis feugiat. Nullam magna 
+		nisl, malesuada eget convallis at, accumsan venenatis augue. Nulla consectetur, elit eu ultrices 
+		fermentum, est mi dictum orci, non viverra turpis dolor tempor eros. Morbi eget semper lectus. 
+	</p>
+</ui:define>
+
+</ui:composition>

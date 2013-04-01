@@ -1,0 +1,24 @@
+.header {
+	background-color:#689DE4;
+	color:white;
+	text-align:center;
+}
+
+.leftContainer {
+	width:20%;
+	float:left;
+}
+.centerContainer {
+	width:56%;
+	float:left;
+	padding-left:20px;
+}
+.rightContainer {
+	width:20%;
+	float:left;
+	padding-left:20px;
+}
+
+.blockTitle {
+	color:#689DE4;
+}
