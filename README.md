@@ -1,3 +1,6 @@
+spring-webflow
+==============
+
 Samples of Spring Webflow based applications
 
 - <b>sp_webflow_embedded_jsf</b>: Consists in a main flow which has an embedded sub-flow. This sub-flow is executed within a modal JSF dialog. Once the sub-flow finishes, the main flow resumes its execution.
