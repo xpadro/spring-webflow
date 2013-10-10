@@ -16,15 +16,16 @@ import org.springframework.webflow.execution.RequestContext;
  */
 @Controller("startFlowController")
 public class StartFlowController extends MultiAction {
+	private static final String PARAM_OTHER = "otherParam";
 
 	public Event start(RequestContext context) {
 		ParameterMap map1 = context.getExternalContext().getRequestParameterMap();
 		ParameterMap map2 = context.getRequestParameters();
-		Assert.assertNotNull(map1.get("otherParam"));
-		Assert.assertNotNull(map2.get("otherParam"));
+		Assert.assertNotNull(map1.get(PARAM_OTHER));
+		Assert.assertNotNull(map2.get(PARAM_OTHER));
 		Assert.assertNotNull(context.getFlowScope().get("urlParam"));
 		
-		context.getFlashScope().put("otherParam", map1.get("otherParam"));
+		context.getFlashScope().put(PARAM_OTHER, map1.get(PARAM_OTHER));
 
 		return new Event(this,  "yes");
 	}
